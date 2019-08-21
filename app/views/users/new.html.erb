@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <% if  @user.errors.any? %>
+        <ul>
+            <% @user.errors.full_message.each do |message| %>
+
+                <li>
+                    <%= message  %>
+                </li>
+
+                <% end %>
+        </ul>
+        <% end %>
+
+            <h1>S'inscrire</h1>
+            <div>
+                <p>
+                  <%= form_for @user,  html: {class: 'hhh' } do |f|%>
+
+                        <div>
+                            <%= f.label :username, "Nom d'utilisateur", class: '' %>
+
+                                <%= f.text_field :username %>
+                        </div>
+                        <br>
+
+                        <div>
+                            <%= f.label "Email", class: '' %>
+
+                                <%= f.email_field :email %>
+                        </div>
+                        <br>
+
+                        <div>
+                            <%= f.label "Mot de passe", class: '' %>
+
+                                <%= f.password_field :pasword %>
+                        </div>
+                        <br>
+
+                        <div>
+                            <%= f.label "confirmation ", class: '' %>
+
+                                <%= f.password_field :password_confirmation %>
+                        </div><br>
+
+                        <div><button type='submit'>s'inscrire</button></div>
+
+                        <% end %>
+                </p>
+            </div>
+</body>
+
+</html>
